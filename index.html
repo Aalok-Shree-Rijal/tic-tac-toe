@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe</title>
+    <link href="style.css" rel="stylesheet">
+    <script src="script.js"></script>
+</head>
+<body>
+
+    <h1>Choose your player: </h1>
+    <div class="grp">
+        <button class="btn" value="aalu" onclick=select(value)><svg width="50" height="50" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="25" cy="25" r="20" stroke="black" stroke-width="3" fill="none" />
+            </svg>
+        </button>
+        <button class="btn" value="cross" onclick=select(value)><svg width="50" height="50" xmlns="http://www.w3.org/2000/svg">
+            <line x1="10" y1="10" x2="40" y2="40" stroke="black" stroke-width="3" />
+            <line x1="40" y1="10" x2="10" y2="40" stroke="black" stroke-width="3" />
+            </svg>
+        </button>
+    </div>
+    
+
+    <div class="container">
+        <button class="pbtn" value="1" onclick=start(this)></button>
+        <button class="pbtn" value="2" onclick=start(this)></button>
+        <button class="pbtn" value="3" onclick=start(this)></button>
+        <button class="pbtn" value="4" onclick=start(this)></button>
+        <button class="pbtn" value="5" onclick=start(this)></button>
+        <button class="pbtn" value="6" onclick=start(this)></button>
+        <button class="pbtn" value="7" onclick=start(this)></button>
+        <button class="pbtn" value="8" onclick=start(this)></button>
+        <button class="pbtn" value="9" onclick=start(this)></button>
+    </div>
+    <h2>let's start the game</h2>
+</body>
+</html>
