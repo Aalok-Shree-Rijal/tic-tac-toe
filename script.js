@@ -51,19 +51,18 @@ function start(btn){
             </svg>`;
             index = available_places.indexOf(value);
             available_places.splice(index,1);
-            
-            if(available_places.length === 0){
-                let h2 = document.getElementsByTagName('h2')[0];
-                h2.innerHTML = 'Draw';
-                setTimeout(()=>{window.location.reload();},3000);
-                return;
-            }
 
             for(let combo of winning_combos){
                 if(combo.every(num => p1_combo.includes(num))){
                     print_winner(player1);
                     return;
                 }
+            }
+            if(available_places.length === 0){
+                let h2 = document.getElementsByTagName('h2')[0];
+                h2.innerHTML = 'Draw';
+                setTimeout(()=>{window.location.reload();},3000);
+                return;
             }
             return;
         }
@@ -87,12 +86,7 @@ function start(btn){
             index = available_places.indexOf(value);
             available_places.splice(index,1);
 
-            if(available_places.length === 0){
-                let h2 = document.getElementsByTagName('h2')[0];
-                h2.innerHTML = 'Draw';
-                setTimeout(()=>{window.location.reload();},3000);
-                return;
-            }
+            
 
             for(let combo of winning_combos){
                 if(combo.every(num => p2_combo.includes(num))){
@@ -100,7 +94,14 @@ function start(btn){
                     return;
                 }
             }
-            h2.innerHTML = `${player1}'s turn`;
+            
+            if(available_places.length === 0){
+                let h2 = document.getElementsByTagName('h2')[0];
+                h2.innerHTML = 'Draw';
+                setTimeout(()=>{window.location.reload();},3000);
+                return;
+            }
+            
             return;
         }
         else{
