@@ -41,10 +41,24 @@ body{
     width: 5rem;
     height: 5rem;
     background-color: white;
+    cursor: pointer;
 }
 
 .btn:hover, pbtn:hover{
     background-color: aliceblue;
 }
+
+#interaction-blocker {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: transparent; /* or rgba(0,0,0,0.2) if you want dim */
+  z-index: 100000;
+  pointer-events: all;
+  display: none;
+}
+
 
 

@@ -6,9 +6,29 @@
     <title>Tic Tac Toe</title>
     <link href="style.css" rel="stylesheet">
     <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+
+    <script>
+      const canvas = document.getElementById('confetti-canvas');
+
+      const myConfetti = confetti.create(canvas, {
+        resize: true,
+        useWorker: true
+      });
+
+      myConfetti({
+        particleCount: 300,
+        spread: 360,
+        startVelocity: 40,
+        origin: { x: 0.5, y: 0.5 }
+      });
+    </script>
+
+
 </head>
 <body>
-
+    
+    <div id="interaction-blocker"></div>
     <h1>Choose your player: </h1>
     <div class="grp">
         <button class="btn" value="aalu" onclick=select(value)><svg width="50" height="50" xmlns="http://www.w3.org/2000/svg">

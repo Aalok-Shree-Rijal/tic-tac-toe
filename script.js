@@ -1,10 +1,20 @@
 const player1 = 'aalu';
 const player2 = 'cross';
+const audio = new Audio('drumrolls.mp4');
 let winning_combos = [[1,2,3],[4,5,6],[7,8,9],
                   [1,4,7],[2,5,8],[3,6,9],
                   [1,5,9],[3,5,7]];
 let available_places = [1,2,3,4,5,6,7,8,9]
 let p1, p2, p1_combo=[], p2_combo=[], index;
+
+function disableInteraction() {
+  document.getElementById('interaction-blocker').style.display = 'block';
+}
+
+function enableInteraction() {
+  document.getElementById('interaction-blocker').style.display = 'none';
+}
+
 
 function select(player){
     if(player == player1){
@@ -54,7 +64,9 @@ function start(btn){
 
             for(let combo of winning_combos){
                 if(combo.every(num => p1_combo.includes(num))){
-                    print_winner(player1);
+                    audio.play();
+                    disableInteraction();
+                    setTimeout(()=>{print_winner(player1)}, 6000);
                     return;
                 }
             }
@@ -90,7 +102,9 @@ function start(btn){
 
             for(let combo of winning_combos){
                 if(combo.every(num => p2_combo.includes(num))){
-                    print_winner(player2);
+                    audio.play()
+                    disableInteraction();
+                    setTimeout(()=>{print_winner(player2)},6000);
                     return;
                 }
             }
@@ -112,6 +126,8 @@ function start(btn){
 }
 
 function print_winner(winner){
+    enableInteraction();
+    confetti();
     let h1 = document.createElement('h1');
     let body = document.getElementsByTagName('body')[0];
     let button = document.createElement('button');
@@ -120,16 +136,19 @@ function print_winner(winner){
     let container = document.getElementsByClassName('container')[0];
     container.style.display = 'none';
 
-    body.style.backgroundColor = 'grey';
+    body.style.backgroundColor = 'cream';
 
     h1.style.display = 'block';
     h1.style.backgroundColor = 'white';
     h1.style.zIndex = '1000';
-    h1.style.backgroundColor = 'grey';
     h1.innerHTML = `The winner is ${winner}`;
     
     button.onclick = ()=>{window.location.reload()}
     button.innerHTML='Restart';
+    button.style.padding = '5px';
+    button.style.fontWeight = 'bold';
+    button.style.backgroundColor = 'aqua';
+    button.style.cursor = 'pointer';
     
     body.append(h1);
     body.append(button);
